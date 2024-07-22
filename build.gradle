@@ -1,0 +1,62 @@
+buildscript {
+    ext {
+        spring = 'org.springframework'
+        boot = 'org.springframework.boot'
+        bootVersion = '3.3.2'
+        lombok = 'org.projectlombok:lombok'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("$boot:spring-boot-gradle-plugin:$bootVersion")
+    }
+}
+
+//plugins {
+//    id 'java'
+//    id 'org.springframework.boot' version '3.3.2'
+//    id 'io.spring.dependency-management' version '1.1.6'
+//}
+
+allprojects {
+    group = 'com.liooos.example'
+    version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+//    java {
+//        toolchain {
+//            languageVersion = JavaLanguageVersion.of(21)
+//        }
+//    }
+
+    apply {
+        plugin 'java'
+        plugin 'java-library'
+        plugin "$boot"
+        plugin 'io.spring.dependency-management'
+        plugin 'idea'
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
+}
+
+
+
+
+
