@@ -2,3 +2,4 @@ rootProject.name = 'example-java'
 
 include ':stream'
 include ':other'
+include ':test'
