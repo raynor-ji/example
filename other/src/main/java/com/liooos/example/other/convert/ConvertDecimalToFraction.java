@@ -1,8 +1,8 @@
-package com.liooos.example.other.base;
+package com.liooos.example.other.convert;
 
 import org.apache.commons.math3.fraction.Fraction;
 
-public class DeceimalToFraction {
+public class ConvertDecimalToFraction {
 
     /**
      * 1. pow를 활용한 분수 변환
